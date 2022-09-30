@@ -1,0 +1,35 @@
+package praktikum3;
+import java.util.Scanner;
+public class TokoMinuman {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int pilihanMenu;
+        double jumlahMinuman = 0, diskon, totalBayar, totalBelanja = 0;
+        System.out.println("menu minuman: ");
+        System.out.println("1. beli minuman\n2. keluar ");
+        System.out.print("pilih menu: ");
+        pilihanMenu = input.nextInt();
+
+        if (pilihanMenu == 1) {
+            System.out.print("masukan jumlah minuman: ");
+            jumlahMinuman = input.nextInt();
+            totalBelanja = jumlahMinuman * 10000;
+
+            if (totalBelanja > 50000) {
+                diskon = 10 * totalBelanja / 100;
+                totalBayar = totalBelanja - diskon;
+            } else if (totalBelanja > 30000) {
+                diskon = 5 * totalBelanja / 100;
+                totalBayar = totalBelanja - diskon;
+            } else {
+                diskon = 0;
+                totalBayar = totalBelanja - diskon;
+            }
+            System.out.println("Anda membeli minuman sebanyak " + jumlahMinuman + " buah\ndengan total harga Rp " + totalBelanja + " dan\npotongan Rp " + diskon + "\ntotal belanja keseluruhan Rp " + totalBayar);
+
+        }
+        else{
+            System.out.println("Anda keluar dari program");
+        }
+    }
+}
